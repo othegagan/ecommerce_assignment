@@ -5,6 +5,7 @@ import { Providers } from '@/providers/Providers';
 import Navbar from '@/components/navigation/NavBar';
 import Banner from '@/components/advertisement/Banner';
 import SmallerMenu from '@/components/navigation/SmallerMenu';
+import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
                     <Banner />
                     <div className='min-w-[360px] flex  flex-col bg-background'>{children}</div>
                 </Providers>
+                <Toaster />
             </body>
         </html>
     );
