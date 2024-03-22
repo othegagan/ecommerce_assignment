@@ -28,7 +28,6 @@ export default function VerificationCard({ email }: { email: string }) {
 
             const response = await axios.post('/api/verify_otp', payload);
             const responseData = response.data.data;
-            console.log(response.data);
             if (response.data.success === true) {
                 if (responseData.emailVerified) {
                     await updateSessoin(responseData);

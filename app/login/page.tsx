@@ -69,8 +69,8 @@ export default function LoginCard() {
                 setError(response.data.message);
             }
         } catch (error: any) {
-            console.log(error.message);
-            setError(error.message || 'An error occurred while processing your request');
+            console.log(error.response.data.message);
+            setError(error.response.data.message || 'An error occurred while processing your request');
         }
     };
 
