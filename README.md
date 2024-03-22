@@ -69,9 +69,16 @@ To use application, simply register, verify the email and add some categories in
 - `POST` - `http://localhost:3000/api/update-wishlist` : To update the category to wishlist
 - `POST` - `http://localhost:3000/api/login` and `http://localhost:3000/api/register`
 
+<br>
 
+![home_page](image-5.png)
 <br>
+
+![login_page](image-4.png)
 <br>
+
+![otp_verification](image-7.png)
+
 <img src="https://i.imgur.com/y4oV9VV.png" alt="colored line" align="center">
 
 
