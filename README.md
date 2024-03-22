@@ -19,6 +19,7 @@ Welcome to our e-commerce website's sign-up and login flow repository! Below you
 1. ✨ **User Registration**: New users can register by providing necessary details such as email, username, and password.
 2. 🔐 **User Login**: Existing users can log in using their credentials.
 3. 🔢 **Email Verification**: Users receive an email with a one-time password (OTP) for verification during the registration process.
+4. ⚙️ **Session Management**: Custom implementation using cookies with Iron Session.
 3. 📦 **Category Selection**: Upon logging in, users can mark their interests in product categories from a list of available options.
 4. 🔄 **Pagination**: Category selection interface is paginated, allowing users to navigate through different pages of categories.
 5. 📝 **Persistent Category Selection**: User's selected categories are stored in the database, ensuring they remain selected upon subsequent logins.
