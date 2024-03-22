@@ -117,11 +117,11 @@ export default function Register() {
                             <Button disabled={isSubmitting} className='flex w-full'>
                                 {' '}
                                 {isSubmitting ? (
-                                    <p className={`${isSubmitting ? 'cursor-not-allowed' : ''} flex items-center text-white `}>
+                                    <div className={`${isSubmitting ? 'cursor-not-allowed' : ''} flex items-center  `}>
                                         <LoaderCircle className='w-5-4 mr-2 w-4 animate-spin  ease-in' />
-                                    </p>
+                                    </div>
                                 ) : (
-                                    <p className='text-white'> REGISTER</p>
+                                    < > REGISTER</>
                                 )}
                             </Button>
                             <hr className='border-black/6 my-4 w-full' />

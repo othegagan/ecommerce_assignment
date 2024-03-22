@@ -85,11 +85,11 @@ export default function VerificationCard({ email }: { email: string }) {
                 <CardFooter>
                     <Button disabled={otp.length !== 8 || isSubmitting} onClick={verifyOTP} className='mx-auto mt-10 flex w-full'>
                         {isSubmitting ? (
-                            <p className={`${isSubmitting ? 'cursor-not-allowed' : ''} flex items-center text-white `}>
+                            <div className={`${isSubmitting ? 'cursor-not-allowed' : ''} flex items-center `}>
                                 <LoaderCircle className='w-5-4 mr-2 w-4 animate-spin  ease-in' /> Verifying OTP..
-                            </p>
+                            </div>
                         ) : (
-                            <p className='text-white'> VERIFY</p>
+                            <> VERIFY</>
                         )}
                     </Button>
                 </CardFooter>
