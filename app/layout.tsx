@@ -6,12 +6,13 @@ import Navbar from '@/components/navigation/NavBar';
 import Banner from '@/components/advertisement/Banner';
 import SmallerMenu from '@/components/navigation/SmallerMenu';
 import { Toaster } from '@/components/ui/toaster';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: 'Fly Buy',
-    description: 'Fly Buy is a platform for buying and selling products online. It provides a seamless and secure shopping experience for users.',
+    title: 'Ecommerce | Gagan Kumar',
+    description: 'Ecommerce is a platform for buying and selling products online. It provides a seamless and secure shopping experience for users.',
 };
 
 export default function RootLayout({
@@ -25,7 +26,11 @@ export default function RootLayout({
                 <Providers>
                     <Navbar />
                     <Banner />
-                    <div className='min-w-[360px] flex  flex-col bg-background'>{children}</div>
+                    <div className='flex min-w-[360px]  flex-col bg-background'>{children}</div>
+
+                    <div className='fixed right-20 scale-125'>
+                        <ThemeToggle />
+                    </div>
                 </Providers>
                 <Toaster />
             </body>
