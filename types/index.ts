@@ -20,7 +20,7 @@ export const sessionOptions: SessionOptions = {
     password: process.env.SECRET_KEY!,
     cookieName: 'ecommerce-session',
     cookieOptions: {
-        httpOnly: true,
+        httpOnly: process.env.NODE_ENV === 'production',
         secure: process.env.NODE_ENV === 'production',
     },
 };

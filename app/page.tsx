@@ -1,26 +1,17 @@
+'use client';
 import React from 'react';
 import BoxContainer from '@/components/BoxContainer';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import DataTable from '@/components/data-table';
 import { columns } from '@/components/columns';
-import { getCategories } from './actions/getData';
-import { getSession } from '@/lib/auth';
-import { useRouter } from 'next/navigation';
+import { useCategories } from '@/hooks/useCategories';
+import { CardSkeleton } from '@/components/ui/skeletons/skeletons';
 
-export default async function Categories() {
-    const session = await getSession();
-    const router = useRouter();
-    if (!session.isLoggedIn) {
-        router.replace('/login');
-        router.refresh();
-    }
+export default function Categories() {
+    const { loading, error, categories } = useCategories();
 
-    const response = await getCategories();
-    if (!response.success) {
-        return <p>Error getting data</p>;
-    }
 
-    const countWishlisted = response.data.reduce((count: number, item: { isWishlisted: boolean }) => {
+    const countWishlisted = categories.reduce((count: number, item: { isWishlisted: boolean }) => {
         if (item.isWishlisted) {
             count++;
         }
@@ -35,9 +26,15 @@ export default async function Categories() {
                         <CardDescription className='text-center'>We will keep you notified.</CardDescription>
                     </CardHeader>
                     <CardContent className='grid gap-4'>
-                        <p className='text-black'>Total {countWishlisted} saved interests found..!</p>
-                        <span></span>
-                        <DataTable data={response.data} columns={columns} />
+                        {loading && <CardSkeleton />}
+                        {!loading && !error && (
+                            <>
+                                <p className='text-black'>Total {countWishlisted} saved interests found..!</p>
+
+                                <DataTable data={categories} columns={columns} />
+                            </>
+                        )}
+                        {error && <h4>Something went wrong fetching data..</h4>}
                     </CardContent>
                 </Card>
             </BoxContainer>

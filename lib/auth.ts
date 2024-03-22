@@ -28,12 +28,8 @@ export const updateSessoin = async (userData:any) => {
 };
 
 export const logout = async () => {
-    try {
-        const session = await getIronSession<SessionData>(cookies(), sessionOptions);
-        //@ts-ignore
-        session.destroy();
-        redirect('/login');
-    } catch (error) {
-        console.log(error);
-    }
+    const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+    //@ts-ignore
+    session.destroy();
+    redirect('/login');
 };

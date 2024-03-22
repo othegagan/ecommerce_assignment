@@ -25,17 +25,15 @@ export async function GET(req: any) {
         // Fetch wishlist items for the specific user
         const wishlistItems = await prisma.wishlistItem.findMany({
             where: {
-                userId: userId, // Filter wishlist items by user ID
+                userId: userId,
             },
             select: {
-                categoryId: true, // Select only the categoryId field
+                categoryId: true,
             },
         });
 
-        // Convert wishlist items to a Set for efficient lookup
         const wishlistItemSet = new Set(wishlistItems.map(item => item.categoryId));
 
-        // Map through categories and add isWishlisted flag based on whether the category is wishlisted by the user
         const categoriesWithFlags = categories.map(category => ({
             ...category,
             isWishlisted: wishlistItemSet.has(category.id),

@@ -20,7 +20,7 @@ export async function POST(req: Request) {
                     message: 'User not found.',
                     data: null,
                 },
-                { status: 404 }, // Not Found status code
+                { status: 404 },
             );
         }
 
@@ -53,7 +53,7 @@ export async function POST(req: Request) {
                 message: 'OTP verification successful. Email verified.',
                 data: {
                     id : updatedUser.id,
-                    name: updatedUser.email,
+                    name: updatedUser.name,
                     email: updatedUser.email,
                     emailVerified: updatedUser.emailVerified,
                 },
@@ -61,7 +61,6 @@ export async function POST(req: Request) {
             { status: 200 },
         );
     } catch (error) {
-        // Return response with error status and message
         console.error(error);
         return NextResponse.json(
             {

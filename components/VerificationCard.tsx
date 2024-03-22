@@ -6,8 +6,8 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp
 import { Label } from '@/components/ui/label';
 import { LoaderCircle } from 'lucide-react';
 import axios from 'axios';
-import { toast } from '../ui/use-toast';
-import FormError from '../ui/form-error';
+import { toast } from './ui/use-toast';
+import FormError from './ui/form-error';
 import { useRouter } from 'next/navigation';
 import { getSession, updateSessoin } from '@/lib/auth';
 
@@ -28,10 +28,10 @@ export default function VerificationCard({ email }: { email: string }) {
 
             const response = await axios.post('/api/verify_otp', payload);
             const responseData = response.data.data;
-            console.log(response.data)
+            console.log(response.data);
             if (response.data.success === true) {
                 if (responseData.emailVerified) {
-                    await updateSessoin(responseData)
+                    await updateSessoin(responseData);
 
                     router.push('/');
                     router.replace('/');

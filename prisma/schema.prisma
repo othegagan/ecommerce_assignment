@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,9 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// schema.prisma
 
-// Define your Category model
 model Category {
   id            String         @id @default(uuid())
   name          String
@@ -26,7 +18,6 @@ model Category {
   updatedAt DateTime @updatedAt
 }
 
-// Define your WishlistItem model
 model WishlistItem {
   id         String   @id @default(uuid())
   user       User     @relation(fields: [userId], references: [id])
@@ -38,7 +29,6 @@ model WishlistItem {
   updatedAt DateTime @updatedAt
 }
 
-// Define your User model
 model User {
   id            String  @id @default(uuid())
   email         String  @unique

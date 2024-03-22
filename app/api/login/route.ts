@@ -13,7 +13,6 @@ export async function POST(req: Request) {
             },
         });
 
-        // If user with the provided email doesn't exist, return an error
         if (!existingUser) {
             return NextResponse.json(
                 {
@@ -21,11 +20,10 @@ export async function POST(req: Request) {
                     message: 'User not found. Please register.',
                     data: null,
                 },
-                { status: 404 }, // Not Found status code
+                { status: 404 },
             );
         }
 
-        // Compare provided password with the hashed password stored in the database
         const passwordMatch = await bcrypt.compare(password, existingUser.password);
 
         // If passwords don't match, return an error
@@ -36,7 +34,7 @@ export async function POST(req: Request) {
                     message: 'Incorrect password. Please try again.',
                     data: null,
                 },
-                { status: 401 }, // Unauthorized status code
+                { status: 401 },
             );
         }
 
@@ -47,7 +45,7 @@ export async function POST(req: Request) {
                 message: 'Login successful',
                 data: {
                     id: existingUser.id,
-                    name: existingUser.email,
+                    name: existingUser.name,
                     email: existingUser.email,
                     emailVerified: existingUser.emailVerified,
                 },
@@ -55,7 +53,6 @@ export async function POST(req: Request) {
             { status: 200 },
         );
     } catch (error) {
-        // Return response with error status and message
         console.log(error);
         return NextResponse.json(
             {
