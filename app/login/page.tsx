@@ -70,7 +70,7 @@ export default function LoginCard() {
             }
         } catch (error: any) {
             console.log(error.message);
-            setError('An error occurred while processing your request');
+            setError(error.message || 'An error occurred while processing your request');
         }
     };
 
