@@ -23,6 +23,7 @@ export default function CheckBoxComponent({ categoryId, isWishlisted }: CheckBox
             };
             const response: any = await updateWishlist(payload);
             toast({
+                duration:3000,
                 description: 'Category Updated.',
             });
             setIsChecked(newValue);

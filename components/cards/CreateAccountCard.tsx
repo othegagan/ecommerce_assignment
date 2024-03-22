@@ -12,6 +12,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import FormError from '../ui/form-error';
 import emailjs from 'emailjs-com';
+import Link from 'next/link';
 
 const schema = z.object({
     name: z.string().trim().min(3, 'Name must be atleast 3 chars.'),
@@ -114,17 +115,24 @@ export default function CreateAccountCard() {
                         </div>
                         {error && <p className='text-red-500'>{error}</p>}
                     </CardContent>
-                    <CardFooter>
+                    <CardFooter className='flex flex-col'>
                         <Button disabled={isSubmitting} className='flex w-full'>
                             {' '}
                             {isSubmitting ? (
                                 <p className={`${isSubmitting ? 'cursor-not-allowed' : ''} flex items-center text-white `}>
-                                    <LoaderCircle className='w-5-4 mr-2 w-4 animate-spin  ease-in' /> Creating Account..
+                                    <LoaderCircle className='w-5-4 mr-2 w-4 animate-spin  ease-in' /> 
                                 </p>
                             ) : (
-                                <p className='text-white'> Create account</p>
+                                <p className='text-white'> REGISTER</p>
                             )}
                         </Button>
+                        <hr className='border-black/6 my-4 w-full' />
+                        <p className='text-center'>
+                            Already have an Account?{' '}
+                            <Link href='/login' className='underline'>
+                                LOGIN
+                            </Link>
+                        </p>
                     </CardFooter>
                 </Card>
             </form>

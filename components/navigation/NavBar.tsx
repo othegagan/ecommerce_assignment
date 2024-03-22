@@ -25,7 +25,7 @@ export default function Navbar() {
                                 <div className='flex flex-1'>
                                     <a href='#'>
                                         <span className='sr-only'>Your Company</span>
-                                        <img className='h-10 w-auto' src='./proto_logo.jpg' alt='brand_logo' />
+                                        <h4 className='uppercase font-extrabold'>ecommerce </h4>
                                     </a>
                                 </div>
 
