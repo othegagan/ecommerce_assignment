@@ -34,7 +34,7 @@ Welcome to our e-commerce website's sign-up and login flow repository! Below you
 
 `Faker.js`: Used to generate radom categories of data.
 
-`Postgres DB`: RDBMS for data storage., hosted on hosted on https://neon.tech/
+`Postgres DB`: RDBMS for data storage., hosted on https://neon.tech/
 
 `Prisma`: ORM for database interaction.
 
