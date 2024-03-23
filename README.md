@@ -31,12 +31,19 @@ Welcome to our e-commerce website's sign-up and login flow repository! Below you
 
 # Technologies Used 🧑‍💻
 `Next.js`: Framework for building both the frontend and backend apis.
+
 `Faker.js`: Used to generate radom categories of data.
+
 `Postgres DB`: RDBMS for data storage., hosted on hosted on https://neon.tech/
+
 `Prisma`: ORM for database interaction.
+
 `Tailwind CSS`: Utility-first CSS framework for styling.
+
 `Vercel`: Hosting platform for deploying the application.
+
 `Email JS`: Used for sending email verification codes.
+
 `React Hook Form & ZOD` : For form submission and validations.
 
 # Steps for setup and usage
